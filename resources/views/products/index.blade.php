@@ -13,8 +13,14 @@
                             </div>
                         @endif
 
-                        <div class="col-2 left">
-                            <a href="{{ route('products.create') }}" class="btn btn-primary">Add New Product</a>
+                        <div>
+                            <div class="col-2 left">
+                                <a href="{{ route('products.create') }}" class="btn btn-primary">Add New Product</a>
+                            </div>
+
+                            <div class="col-2 right">
+                                <input type="text" name="search" class="form-control" placeholder="Search" id="search" value="{{request()->get('search') }}" style="width:unset;">
+                            </div>
                         </div>
                         <table class="table">
                             <thead>
