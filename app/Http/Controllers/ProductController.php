@@ -12,24 +12,18 @@ class ProductController extends Controller
     {
         $lenght =10;
         $products = Product::with('category')->paginate($lenght);
-        // return $products;
+
         return view('products.index', compact('products'));
     }
 
     public function edit(Request $product,$id)
     {
-        // return $id;
+
         $product = Product::whereId($id)->with('category')->first();
         $categories = Category::all();
-        // return $products;
         return view('products.edit', compact('product','categories'));
     }
 
-    public function create()
-    {
-        $categories = Category::all();
-        return view('products.create', compact('categories'));
-    }
 
     public function store(Request $request)
     {
@@ -47,6 +41,13 @@ class ProductController extends Controller
 
             return redirect()->route('products.store')->with('error', 'Product Not created!');
     }
+
+    public function create()
+    {
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
+    }
+
     public function update(Request $request, $id)
     {
         $request->validate([

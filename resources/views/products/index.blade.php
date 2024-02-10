@@ -1,7 +1,6 @@
 
 @include('layouts.index')
 
-{{-- @section('content') --}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
@@ -34,7 +33,7 @@
                                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                             <form action="{{ route('products.destroy', $product->id) }}" method="get" style="display: inline-block;">
                                                 @csrf
-                                                {{-- @method('DELETE') --}}
+
                                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                             </form>
                                         </td>
@@ -47,4 +46,4 @@
             </div>
         </div>
     </div>
-{{-- @endsection --}}
+
